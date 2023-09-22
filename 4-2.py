@@ -192,7 +192,7 @@ print(ep)
 pi = mu.mt_pi()
 print(pi) """
 
-import random as rd
+""" import random as rd
 
 res = rd.randint(1, 180)
 print(res)
@@ -208,3 +208,15 @@ nvres = rd.normalvariate()
 print(nvres)
 
 
+ """
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
