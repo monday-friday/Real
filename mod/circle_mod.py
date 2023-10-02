@@ -5,12 +5,18 @@ pi = 3.14159
 def add(x, y):
     return x + y
 
-r = 1
+def cc_len(x) :
+    return x * 2 * pi
 
-x = r * 2 * pi
-y = r * r * pi
+def cc_area(x) :
+    return x * x * pi
 
-print(add(x, y))
+
+
+
+
+
+
 
 
 
