@@ -1,101 +1,3 @@
-""" #datetime 이용 함수 
-
-from datetime import datetime as dt 
-
-#현재시간출력 
-
-print(dt.now())
-
-def get_dtnow() :
-    return dt.now()
-
-def cvt_time2str(objtime) :
-    return dt.strptime(objtime, '%Y-%m-%d')
-
-#특정 시간대의 현재 시간 출력 
-#from pytz import timezone 
-#import timezone 
-#tz = timezone('Asia/Seoul')
-#tz = time('UTC')
-#print("timezon:", dt.now(tz))
-
-
-
-#문자열을 날짜로 변환 
-date_string = '2021-07-08'
-date_object = dt.strptime(date_string,'%Y-%m-%d')
-print(date_object)
-
-#날짜를 문자열로 변환 
-date_object = dt.now()
-date_string = date_object.strftime('%Y-%m-%d')
-print(date_string)
-
-
-#import mod.utils as mu
-#dtnow = mu.get_dtnow()
-#print(dtnow)
-'''import os
-os.chdir('../.')
-print(os.getcwd())
-
-
-print(os.listdir())
-
-os.rmdir('new_directory')
-print(os.listdir(0))
-
-os.mkdir('new_direcotory')
-print(os.listdir())
-'''
-
-import mod.utils as mu
-import os 
-
-print(mu.get_curdir())
-
-pname="python"
-mu.os_mkdir(pname)
-print(os.listdir())
-
-os.rmdir(pname)
-print(os.listdir())
-
-import sys
-print(sys.version)
-print(sys.argv)
-
-st = []
-
-st.append(1)
-st.append(2)
-st.append(3)
-st.append(4)
-st.append(5)
-print(st) #[1,2,3]
-top = st.pop
-
-print(top)
-print(st)
-print(len(st))
-
-queue = []
-
-queue.append(1)
-queue.append(2)
-queue.append(3)
-queue.append(4)
-queue.append(5)
-print(queue) #[1,2,3]
-front = queue.pop
-
-print(front)
-print(queue)
-print(len(queue))
-
- """
-
-
 """ qlist = []
 
 def enqueue(qlist, data) :
@@ -281,12 +183,89 @@ else :
     print(f"Not found")    
  """
 
-import requests
+""" import requests
 
 res = requests.get('https://www.google.com')
 # res = requests.get("https://www.daum.net")
 print(res)
-print(res.content)
+print(res.content) """
+
+
+# numpy
+
+""" import numpy as np
+
+# 1차배열 생성
+a = np.array([1, 2, 3])
+print(a)
+
+# 2차 3행 배열, 0으로 초기화
+b = np.zeros((2, 3))
+print(b)
+
+# 2차 3행 배열, 1로 초기화
+c = np.ones((2, 3))
+print(c)
+
+d = np.array([1, 2, 3])
+e = np.array([4, 5, 6])
+
+# 배열간 연산
+f = d + e
+g = d - e
+h = d * e
+i = d / e
+
+print(f)
+print(g)
+print(h)
+print(i)
+ """
+
+
+# pandas
+
+""" import pandas as pd
+
+# Create a dataframe
+data = {'Name': ['John', 'Jane', 'Mike', 'Sarah'],
+        'Age': [25, 30, 35, 40],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston']}
+df = pd.DataFrame(data)
+# print(df) """
+
+# age 관련 속성
+# print(df['Age'].describe())
+
+
+# Sort the dataframe by age in descending order
+""" print(df.sort_values(by ='Age', ascending=False))
+print("================================")
+print(df.sort_values(by ='Age', ascending=True))
+print("================================")
+print(df.sort_values(by ='Name', ascending=True))
+
+ """
+# matplotlib
+
+
+import matplotlib.pyplot as helpme
+
+# create example data
+x = [1, 2, 3, 4, 5]
+y = [10, 8, 6, 4, 2]
+
+# plot the data
+helpme.plot(x, y)
+
+# add labels and title
+helpme.xlabel('too difficult')
+helpme.ylabel('freedom')
+helpme.title('Example plot')
+
+# show the plot
+helpme.show()
+
 
 
 
