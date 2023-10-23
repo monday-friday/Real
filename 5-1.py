@@ -1,8 +1,8 @@
-""" #datetime 이용 함수 
+#datetime 이용 함수 
 
 from datetime import datetime as dt 
 
-#현재시간출력 
+""" #현재시간출력 
 
 print(dt.now())
 
@@ -10,7 +10,7 @@ def get_dtnow() :
     return dt.now()
 
 def cvt_time2str(objtime) :
-    return dt.strptime(objtime, '%Y-%m-%d')
+    return dt.strptime(objtime, '%Y-%m-%d') """
 
 #특정 시간대의 현재 시간 출력 
 #from pytz import timezone 
@@ -22,7 +22,7 @@ def cvt_time2str(objtime) :
 
 
 #문자열을 날짜로 변환 
-date_string = '2021-07-08'
+""" date_string = '2021-07-08'
 date_object = dt.strptime(date_string,'%Y-%m-%d')
 print(date_object)
 
@@ -30,7 +30,7 @@ print(date_object)
 date_object = dt.now()
 date_string = date_object.strftime('%Y-%m-%d')
 print(date_string)
-
+ """
 
 #import mod.utils as mu
 #dtnow = mu.get_dtnow()
@@ -49,7 +49,7 @@ os.mkdir('new_direcotory')
 print(os.listdir())
 '''
 
-import mod.utils as mu
+""" import mod.utils as mu
 import os 
 
 print(mu.get_curdir())
@@ -63,8 +63,8 @@ print(os.listdir())
 
 import sys
 print(sys.version)
-print(sys.argv)
-
+print(sys.argv) """
+""" 
 st = []
 
 st.append(1)
@@ -96,7 +96,7 @@ print(len(queue))
  """
 
 
-""" qlist = []
+qlist = []
 
 def enqueue(qlist, data) :
     qlist.append(data)
@@ -122,7 +122,7 @@ dequeue(qlist)
 print(qlist)
 
 dequeue(qlist)
-print(qlist) """
+print(qlist) 
 
 
 # O(1)
@@ -281,7 +281,7 @@ else :
     print(f"Not found")    
  """
 
-import requests
+""" import requests
 
 res = requests.get('https://www.google.com')
 # res = requests.get("https://www.daum.net")
@@ -289,7 +289,7 @@ print(res)
 print(res.content)
 
 
-
+ """
 
 
 

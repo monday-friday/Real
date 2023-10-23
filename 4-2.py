@@ -7,8 +7,8 @@
 def callfunc(fx) :
     fx()
     
-callfunc(prt_func)  """
-""" 
+callfunc(prt_func) 
+
 def prt_func(n) :
     print("hello", n)
     
@@ -16,8 +16,8 @@ def callfunc(fx) :
     for i in range(5) :
         fx(i)
         
-callfunc(prt_func) """
-
+callfunc(prt_func)
+ """
 
 
 # 타입힌트
@@ -27,9 +27,9 @@ callfunc(prt_func) """
 
 def add(a: int, b : int) -> int :
     return a + b
- """
 
-""" def update_msg(name : str) -> list :
+
+def update_msg(name : str) -> list :
     msg = []
     msg.append("hello, " + name)
     msg.append("bye, " + name)
@@ -43,8 +43,8 @@ def greeting(in_name : str) -> list :
 res = greeting("python") 
 
 for message in res :
-    print(message)    """ 
-    
+    print(message)   
+     """
     
 # 재귀함수 
     
@@ -55,8 +55,8 @@ for message in res :
     print(1, n)
     fun(n+1)
        
-fun(1)     """
-
+fun(1)     
+ """
 
 # factorial
 """ 
@@ -67,9 +67,9 @@ def ploop(n) :
     else : print(n, n-1, "=", n + n-1)
     return n * ploop(n-1)
        
-print(ploop(5))       
-
+print(ploop(5)) # ploop는 5부터 1까지 적용
  """
+
 
 """ def fibonacci(n) :
     if n == 0 :
@@ -86,9 +86,10 @@ print("res = ", res) """
 
 # 사용자 정의 모듈
 
-""" import calc """
+import calc 
 
 # print(dir(calc))
+# calc는 사용자 정의 모듈, 따로 py파일을 만들었다고 생각해야 됨
 """ 
 add_res = calc.add(8, 5)
 print(calc.add(6, 4))
@@ -100,8 +101,8 @@ mul_res = calc.mul(6, 3)
 print(calc.mul(6, 3))
 
 div_res = calc.div(6, 3)
-print(calc.div(6, 3)) """
-
+print(calc.div(6, 3)) 
+ """
 
 # alias 사용
 """ 
@@ -126,33 +127,33 @@ add_res = cl.add()
 
 
 # circle mod
-
-""" import mod.circle_mod as cm
+""" 
+import mod.circle_mod as cm
 
 print(cm.pi)
 
 print(cm.cc_area(4))
-print(cm.cc_len(5))
+print(cm.cc_len(5)) """
+# 마찬가지로 사용자 정의 모듈
 
- """
 # 문자열 자르기
-""" 
-import mod.str_util as smod
+
+""" import mod.str_util as smod
 
 def cutstr(St, wd, idx) :
-    tmp = st.split(wd)
+    tmp = St.split(wd)
     res = smod.cutstr(url, "/", 3)
     return ResourceWarning
 url ="https://www.notion.so/test/4-1/a1fe5ef0df1/41/fdfdfd"
 rs = cutstr(url, "/", 3)
-print(rs) """
-
+print(rs)
+ """
 
 # 표준라이브러리, 내장모듈
 
 #math 모듈
 
-import math
+""" import math
 sq_res = math.sqrt(5)
 print(sq_res)
 
@@ -171,11 +172,11 @@ pi_res = math.pi
 print(pi_res)
 
 fac_res = math.factorial(2)
-print(fac_res)
+print(fac_res) """
 
 
-
-""" import mod.utils as mu
+""" 
+import mod.utils as mu
 
 res = mu.mt_sqrt(7)
 print(res)
@@ -190,9 +191,9 @@ ep = mu.mt_exp(3)
 print(ep)
 
 pi = mu.mt_pi()
-print(pi) """
-
-""" import random as rd
+print(pi) 
+ """
+import random as rd
 
 res = rd.randint(1, 180)
 print(res)
@@ -201,22 +202,12 @@ my_list = ["apple", "banana", "cherry"]
 lres = rd.choice(my_list)
 print(lres)
 
-fres = rd.random()
+fres = rd.random() # 0.0 ~ 1.0 사이 랜덤 실수 생숭
 print(fres)
 
-nvres = rd.normalvariate()
+nvres = rd.normalvariate() # 정규 분포에 따르는 랜덤 실수 생성
 print(nvres)
 
 
- """
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  

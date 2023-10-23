@@ -10,7 +10,7 @@ a = 2
 b = 3
 c = a + b
 a = 10
-b = 2 # 영향을 주지 않는다. 앞에서 이미 값을 도출해서 냈기 때문.
+b = 2 # 영향을 주지 않는다. 앞에서 이미 값을 도출해서 냈기 때문. 파이썬은 위에서 아래로
 print(c)
 
 # 변수엔 공백이 들어가지 않는다
@@ -50,8 +50,11 @@ def incheon(number) :
     print(number)    
 # 여기까진 아무 일도 벌어나지 않는다. 펑션을 정의한 것이 다기 때문이고 펑션을 사용하지 않았기 때문이다
 # 다른 말로 표현하면 정의했지만 호출하지 않았다
+say_hello(22)
 say_hello("arr")
-say_hello("arr")
+# 함수를 실행할 때 정의했던 arr을 적지 않아도 된다. 빈 칸만 아니면 된다.
+# arr은 플레이스홀더가 거기에 넣을 데이터가 필요했을 뿐이다. 그대로 출력하고 싶다면 number처럼 적어주면 되고
+# 그렇지 않다면 적어주지 않아도 상관 없다. 
 
 incheon(12)
 """ print 역시 펑션이다. 위의 세이 헬로 역시 마찬가지
@@ -72,7 +75,7 @@ def say_hello() :
 """ def say_bye() :
     print("bye")
     print("hello") """
-# 이렇게 안에 넣으면 바이 안에 헬로를 넣은 것, 즉 세이 바이를 실행하면 프린트, 세이 헬로가 둘 다 실행
+# 이렇게 안에 넣으면 say_bye 안에 hello를 넣은 것, 즉 세이 바이를 실행하면 프린트, 세이 헬로가 둘 다 실행
 # say_bye()
 
 # def 아래에 들여쓴 게 없다면 펑션에 실행할 코드가 없다는 것이다. 들여써서 내용을 넣어주는 것이다
@@ -100,11 +103,11 @@ say_hello("lebron")
 def shittheclass(class_name) :
     print("please fire", class_name, "stop talking")
 
-shittheclass("www")
+shittheclass("mijeongp")
 
 # Gin이라는 데이터를 name의 값으로 주겠다
 # 내가 준 gin이라는 값을 받을 거고 그건 name에 저장된다
-# 문자 데이터가 아니므로 따옴표는 넣지 않는다
+# 문자 데이터가 아니므로 따옴표는 넣지 않는다(function 내 class_name 말하는 거다)
 # 공백과 달리 name은 첫번째 인자로 어떤 데이터를 원한다! gin 같은
 # name이라는 플레이스 홀더는 펑션 안에서 쓸 수 있는 변수다. print(name)을 밖에 쓰면 유효하지 않다
 # 밖에서 부를 때 당연히 따옴표는 붙여야 한다. 없으면 또 다른 변수 정의가 필요하다
@@ -114,12 +117,12 @@ shittheclass("www")
 # parameter로 가서 콤마를 찍어준다! 그릇을 여러 개 만들어준다고 생각하자
 
 def nba_player(team, name) :
-    print("kevin durant", team, name, "is shooter")
-    print(team, "paul")
+    print(team, name, "is a winner in 2023")
+    print("He is a world champion")
     
 # 여기서 그릇을 두 개 만들었고 이는 쉿더클래스 함수는 2개의 데이터를 받는다고 정의했기 때문이다
 # 필요한 데이터를 모두 보내줘야 하니까, 두 개를 써주자. 순서도 고려해서
-nba_player("phoenix", "suns")
+nba_player("phoenix", "booker")
 nba_player("golden states", "curry")
 
 # argument는 그럼 몇 개를 줄 수 있는가? 플레이스홀더 개수 만큼이다. 
@@ -133,7 +136,7 @@ def tax_calculator(bank) :
     print(3000 * 3, bank, "exchange")
 
 tax_calculator("kookmin")
-tax_calculator("company")
+tax_calculator("sinhan")
 
 def self_calculator(math) :
     print(math, "quiz")
@@ -149,13 +152,13 @@ self_calculator("high school")
 def say_hello(user_name="tom") :
     print("Hello", user_name)
 
-say_hello("tofu")
+say_hello("king")
 say_hello()
 
-def movie_star(actor = "kann") :
-    print(actor,"is good")
+def musician (music = "post malone") :
+    print(music,"is my favorite")
     
-movie_star("minsik")    
+musician("Yerin")    
 # parameter에 '=기본값'을 써준다. 이퀄을 붙여주는 것!
 
 # 챌린지! 계산기를 만들어보자
@@ -216,8 +219,8 @@ pay_tax(love)
 # 프린트를 리턴으로 바꾼다
 # 2000이 과일이고 택스 계산기가 주스 기계, 그리고 4000이 주스인 것이다
 
-guard = tax_calculator(2000)
-pay_tax(guard)
+gongcha = tax_calculator(2000)
+pay_tax(gongcha)
 
 # 다시 말하면 리턴은 곧 결괏값인데, 이는 다르게 정의할 수 있다는 것이다 프린트는 to_pay같은 곳에
 # 결괏값, 즉 주스를 저장할 수 없다. 리턴의 의미는 함수 바깥으로 값을 보낸다는 것이다
@@ -226,6 +229,15 @@ pay_tax(tax_calculator(2000))
 
 # 더 짧게 하려면 이렇게 써도 된다. 리턴은 값을 보관한다. 명심하자
 # 프린트는 콘솔에서 값을 확인하는 거고, 리턴은 함수 바깥으로 값을 보낼 수 있게 해준다
+
+def personal_color(choice) :
+    return(f"{choice} is for you!")
+
+def dress_color(want) :
+    print(want, "perfect!")
+
+fashion = personal_color("yellow")
+dress_color(fashion)
 
 
 #1 11 Return Recap
@@ -237,10 +249,13 @@ my_movie = "Intern"
 
 print(f"Hello i`m {my_name}, i have {my_age} years in the earth, {my_movie} is my art")
 
-a_list = "gottcha"
-b_list = "soul"
+a_list = "god"
+b_list = "please"
 
 print(f"dont stop me now, {a_list}, {b_list}, haha")
+
+adobe = "photoshop"
+print(f"you should learn {adobe}")
 
 # 위처럼 중간에 쌍따옴표를 넣지 않도록 주의한다
 # 만약 문자 데이터를 그냥 통째로 출력하고 싶다면 앞에 f를 써주고 뒤에 쌍따옴표를 붙인 뒤 중괄호를 씌워 입력해준다
@@ -259,9 +274,9 @@ def add_sugar(iced_juice) :
 
 juice = make_juice("lemon") # lemon + juice
 print(juice)
-cold_juice = add_ice(juice)# leomon + juice + ice
-print(cold_juice)
-lemonade = add_sugar(cold_juice) # lemon + juice + ice + 슈거
+iced_juice = add_ice(juice)# leomon + juice + ice
+print(iced_juice)
+lemonade = add_sugar(iced_juice) # lemon + juice + ice + 슈거
 
 print(lemonade)
 
@@ -272,24 +287,25 @@ print(lemonade)
 # return은 값을 가지고 함수 바깥으로 던져주고 파이썬은 그걸 잡아 코드에 대입해준다!    
 # return은 함수를 끝낸다 즉 뒤이어 프린트든 뭐든 적어도 실행 안된다. 리턴값이 놓인다
 
+def usa_region(name) :
+    return(f"{name} + lakers")
 
-def newjeans_album(first) :
-    return(f"{first} is a hype boy")
+def basketball(team) :
+    return(f"{team} + player")
 
-def newjeans_song(second) :
-    return(f"{second} is ditto")
+def people(player) :
+    return(f"{player} + is Anthony Davis")
 
-def newjeans_trend(third) :
-    return(f"{third} is super_shy") 
-       
-second = newjeans_album("rabbit")
-# rabbit is a hype boy
-third = newjeans_song(second)
-# rabbit is a hype boy is ditto
-fourth = newjeans_trend(third)    
-# rabbit is a hype boy is ditto is super_shy    
+american = usa_region("La")
+print(american)
+center = basketball(american)
+print(center)
+my_pic = people(center)
 
-print(fourth)
+print(my_pic)
+
+# 위에서 american, center처럼 함수 내 플레이스홀더와 다르게 하는 이유는 구분하기 위함이다
+# 똑같다면 식을 진행할 때 구분하기 힘들기 때문이다.
 
 # 첫 식에서만 정의되지 않았으므로 문자데이터, 쌍따옴표 붙여주고 뒤에선 정의되었으므로 안 붙여줘도 된다
 # 마지막으로 fourth를 프린트할 것이므로 여기까지 정의가 돼야 한다
