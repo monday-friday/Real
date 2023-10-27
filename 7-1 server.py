@@ -113,9 +113,6 @@ while True:
 
 sock.close() 
 
-
-'''
-'''
 #속성 출력
 
 class Person :
@@ -137,10 +134,10 @@ print(p1.name)
 print(p1.age)
 print(p1.number)
 '''
-
+ """
 #클래스 초기화
-'''
-class Person :
+
+""" class Person :
     def __init__(self, name, age, number):
         self.name = name
         self.age = age
@@ -173,4 +170,5 @@ print(p1.getCount())
 p2 = Person("hee", 24, "028764321")
 print(p2.name)
 print(p2.getCount())
-"""
+
+ """
