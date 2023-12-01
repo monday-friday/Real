@@ -7,15 +7,19 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import pairwise_distances_argmin_min
 from sklearn.utils import shuffle
 
+# 사용자에게 메시지 입력 받기
+greeting_message = input("크리스마스 선물 카드에 인삿말을 입력하세요: ")
+print("입력한 인삿말:", greeting_message)
 
-img_path = 'img_01.jpg'
+# 사용자에게 이미지 경로 입력 받기
+img_path = input("포토모자이크로 처리할 이미지의 경로를 입력하세요: ")
+
 img = cv2.imread(img_path)
 
 img = cv2.resize(img, dsize=None, fx=0.2, fy=0.2)
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 print(img.shape)
-
 plt.figure(figsize=(20, 20))
 plt.axis('off')
 plt.imshow(img)
@@ -54,11 +58,7 @@ h, w, d = img.shape
 img_array = img.copy().astype(np.float64) / 255.
 img_array = np.reshape(img_array, (w * h, d))
 
-# all pixels
 img_array_sample = shuffle(img_array, random_state=0)
-
-# pick random 1000 pixels if want to run faster
-# img_array_sample = shuffle(img_array, random_state=0)[:1000]
 
 # KMeans clustering
 kmeans = KMeans(n_clusters=N_CLUSTERS, random_state=0).fit(img_array_sample)
@@ -122,10 +122,12 @@ plt.imshow(img_out)
 img_out2 = cv2.cvtColor((img_out * 255).astype(np.uint8), cv2.COLOR_RGB2BGR)
 _ = cv2.imwrite('result/%s_color.jpg' % os.path.splitext(os.path.basename(img_path))[0], img_out2)
 
+output_path = 'result/christmas_card_%s_color.jpg' % os.path.splitext(os.path.basename(img_path))[0]
+plt.savefig(output_path)
+
+print(f"크리스마스 선물 카드가 완성되었습니다. 결과 이미지는 '{output_path}'에 저장되었습니다.")
+
 plt.show()
-
-
-
 
 
 

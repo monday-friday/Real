@@ -129,6 +129,30 @@ print(res)
 
 
 df.groupby(["지역명", "연도", "월"])["분양가"].agg("sum")
+"""
+
+
+import pandas as pd
+
+tr = pd.read_csv("Real/train.csv")
+
+print(tr)
+print("====================")
+# print(tr.head())
+
+
+res = tr.isnull().sum()
+print(res)
+
+
+# 승선지
+
+res = pd.crosstab(tr["Embarked"], tr["Survived"])
+print(res)
+
+# 컬럼 매핑
+res.columns.map({0:"Dead", 1 : "Alive"})
+print(res)
 
 
 
@@ -137,4 +161,9 @@ df.groupby(["지역명", "연도", "월"])["분양가"].agg("sum")
 
 
 
- """
+
+
+
+
+
+ 
