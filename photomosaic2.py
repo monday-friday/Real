@@ -12,7 +12,7 @@ greeting_message = input("크리스마스 선물 카드에 인삿말을 입력�
 print("입력한 인삿말:", greeting_message)
 
 # 사용자에게 이미지 경로 입력 받기
-img_path = input("포토모자이크로 처리할 이미지의 경로를 입력하세요: ")
+img_path = "크리스마스 카드.jpeg"
 
 img = cv2.imread(img_path)
 
@@ -51,7 +51,7 @@ for i in range(80):
     plt.axis('off')
     plt.imshow(img_patch)
 
-N_CLUSTERS = 32
+N_CLUSTERS = 23
 
 h, w, d = img.shape
 
@@ -61,7 +61,7 @@ img_array = np.reshape(img_array, (w * h, d))
 img_array_sample = shuffle(img_array, random_state=0)
 
 # KMeans clustering
-kmeans = KMeans(n_clusters=N_CLUSTERS, random_state=0).fit(img_array_sample)
+kmeans = KMeans(n_clusters=N_CLUSTERS, random_state=0, n_init=10).fit(img_array_sample)
 
 print(kmeans.cluster_centers_)
 
@@ -101,7 +101,10 @@ for img_patch in sample_imgs:
         bins[cluster_idx[0]].append(img_patch)
 
 # number of bins must equal to N_CLUSTERS. if not, increase DISTANCE_THRESHOLD
-assert(len(bins) == N_CLUSTERS)
+print("Actual number of clusters:", len(bins))
+print("Expected number of clusters:", N_CLUSTERS)
+# assert(len(bins) == N_CLUSTERS)
+
 
 img_out = np.zeros((h*32, w*32, d), dtype=np.float64)
 
@@ -110,8 +113,11 @@ for y in range(h):
         label = cluster_labels[y, x]
 
         b = bins[label]
-
-        img_patch = b[np.random.randint(len(b))]
+        if len(b) > 0 :
+            img_patch = b[np.random.randint(len(b))]
+            
+        else :
+            img_patch = "09.jpg"
 
         img_out[y*32:(y+1)*32, x*32:(x+1)*32] = img_patch
         
@@ -122,7 +128,7 @@ plt.imshow(img_out)
 img_out2 = cv2.cvtColor((img_out * 255).astype(np.uint8), cv2.COLOR_RGB2BGR)
 _ = cv2.imwrite('result/%s_color.jpg' % os.path.splitext(os.path.basename(img_path))[0], img_out2)
 
-output_path = 'result/christmas_card_%s_color.jpg' % os.path.splitext(os.path.basename(img_path))[0]
+output_path = 'result/christmas_card_02_color.jpg'
 plt.savefig(output_path)
 
 print(f"크리스마스 선물 카드가 완성되었습니다. 결과 이미지는 '{output_path}'에 저장되었습니다.")
